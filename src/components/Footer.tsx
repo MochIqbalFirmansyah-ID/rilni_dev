@@ -90,8 +90,6 @@ const Footer: React.FC = () => {
             </p>
 
             <p className="text-white/40 text-xs max-w-2xl mx-auto">
-              $RILNI is a meme coin with zero utility and 100% entertainment. No roadmap. No promises. No expectations. 
-              Join the ride if you dare. This is not financial advice. DYOR and stay based.
             </p>
 
             <p className="text-fuchsia-400 mt-6 orbitron">
