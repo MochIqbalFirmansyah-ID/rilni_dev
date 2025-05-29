@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --neon-purple: 176, 38, 255;
+    --electric-blue: 0, 239, 255;
+    --toxic-green: 0, 255, 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-yellow-400 text-black overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(var(--neon-purple), 0.15) 0%, transparent 25%),
+      radial-gradient(circle at 90% 50%, rgba(var(--electric-blue), 0.15) 0%, transparent 30%),
+      radial-gradient(circle at 40% 80%, rgba(var(--toxic-green), 0.15) 0%, transparent 35%);
+  }
+}
+
+@layer components {
+  .orbitron {
+    font-family: 'Orbitron', sans-serif;
+  }
+  
+  .press-start {
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  .glitch {
+    position: relative;
+    animation: glitch 1s linear infinite;
+  }
+
+  @keyframes glitch {
+    0% {
+      text-shadow: 0.05em 0 0 rgba(var(--electric-blue), 0.75), 
+                  -0.05em -0.025em 0 rgba(var(--neon-purple), 0.75),
+                  -0.025em 0.05em 0 rgba(var(--toxic-green), 0.75);
+    }
+    14% {
+      text-shadow: 0.05em 0 0 rgba(var(--electric-blue), 0.75), 
+                  -0.05em -0.025em 0 rgba(var(--neon-purple), 0.75),
+                  -0.025em 0.05em 0 rgba(var(--toxic-green), 0.75);
+    }
+    15% {
+      text-shadow: -0.05em -0.025em 0 rgba(var(--electric-blue), 0.75),
+                  0.025em 0.025em 0 rgba(var(--neon-purple), 0.75),
+                  -0.05em -0.05em 0 rgba(var(--toxic-green), 0.75);
+    }
+    49% {
+      text-shadow: -0.05em -0.025em 0 rgba(var(--electric-blue), 0.75),
+                  0.025em 0.025em 0 rgba(var(--neon-purple), 0.75),
+                  -0.05em -0.05em 0 rgba(var(--toxic-green), 0.75);
+    }
+    50% {
+      text-shadow: 0.025em 0.05em 0 rgba(var(--electric-blue), 0.75),
+                  0.05em 0 0 rgba(var(--neon-purple), 0.75),
+                  0 -0.05em 0 rgba(var(--toxic-green), 0.75);
+    }
+    99% {
+      text-shadow: 0.025em 0.05em 0 rgba(var(--electric-blue), 0.75),
+                  0.05em 0 0 rgba(var(--neon-purple), 0.75),
+                  0 -0.05em 0 rgba(var(--toxic-green), 0.75);
+    }
+    100% {
+      text-shadow: -0.025em 0 0 rgba(var(--electric-blue), 0.75),
+                  -0.025em -0.025em 0 rgba(var(--neon-purple), 0.75),
+                  -0.025em -0.05em 0 rgba(var(--toxic-green), 0.75);
+    }
+  }
+
+  .neon-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .neon-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(var(--electric-blue), 0.4),
+      transparent
+    );
+    transition: 0.5s;
+  }
+
+  .neon-button:hover::before {
+    left: 100%;
+  }
+
+  .roadmap-item {
+    position: relative;
+  }
+  
+  .roadmap-item::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: rgb(var(--neon-purple));
+    opacity: 0.5;
+  }
+  
+  .roadmap-item::after {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 0;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background: rgb(var(--neon-purple));
+    box-shadow: 0 0 10px rgba(var(--neon-purple), 0.8);
+  }
+}
